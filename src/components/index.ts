@@ -6,6 +6,8 @@ import Categories from "./Categories/Categories";
 import ArticlesList from "./ArticlesList/ArticlesList";
 import Article from "./HighlightedArticle/HighlightedArticle";
 import Button from "./Button/Button";
+import InputText from "./InputText/InputText";
+import InputSelect from "./InputSelect/InputSelect";
 
 export {
   Header,
@@ -16,4 +18,6 @@ export {
   ArticlesList,
   Article,
   Button,
+  InputText,
+  InputSelect,
 };

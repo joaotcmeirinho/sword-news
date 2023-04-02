@@ -10,7 +10,7 @@ const ArticlesList = ({ articlesData }: ArticlesListProps) => {
   return (
     <Container>
       {articlesData.map((article) => (
-        <Article article={article} />
+        <Article key={article.id} article={article} />
       ))}
     </Container>
   );

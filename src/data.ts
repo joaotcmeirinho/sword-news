@@ -1,6 +1,6 @@
-import { ArticleModel, CategoriesModel } from "./models";
+import { ArticleModel } from "./models";
 
-export const articleCategories: CategoriesModel[] = [
+export const articleCategories: string[] = [
   "Marketing",
   "Design",
   "Engineering",
@@ -26,7 +26,7 @@ export const articlesData: ArticleModel[] = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ei1",
     image:
       "https://media.istockphoto.com/id/1315904960/photo/taking-notes-on-a-ring-binded-notepad-inf.jpg?b=1&s=170667a&w=0&k=20&c=hhPKAbbFiLYgiuqJbv5Pjj3RJBdUTKnzmgYDGFJ5Q4o=",
-    category: "Marketing",
+    category: "Design",
     content: "",
     isDraft: false,
   },
@@ -58,7 +58,7 @@ export const articlesData: ArticleModel[] = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image:
       "https://media.istockphoto.com/id/1315904960/photo/taking-notes-on-a-ring-binded-notepad-inf.jpg?b=1&s=170667a&w=0&k=20&c=hhPKAbbFiLYgiuqJbv5Pjj3RJBdUTKnzmgYDGFJ5Q4o=",
-    category: "Marketing",
+    category: "Engineering",
     content: "",
     isDraft: false,
   },
@@ -80,7 +80,7 @@ export const articlesData: ArticleModel[] = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, se6 dolore magna aliqua.",
     image:
       "https://media.istockphoto.com/id/1315904960/photo/taking-notes-on-a-ring-binded-notepad-inf.jpg?b=1&s=170667a&w=0&k=20&c=hhPKAbbFiLYgiuqJbv5Pjj3RJBdUTKnzmgYDGFJ5Q4o=",
-    category: "Design",
+    category: "Engineering",
     content: "",
     isDraft: false,
   },

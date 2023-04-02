@@ -20,12 +20,17 @@ export const CategoriesContainer = styled.div`
   gap: 16px;
 `;
 
-export const CategoryButton = styled.button`
+interface BtnProps {
+  selected?: boolean;
+}
+
+export const CategoryButton = styled.button<BtnProps>`
   cursor: pointer;
   width: 100px;
   box-sizing: border-box;
   padding: 12px 8px;
   border-radius: 20px;
   border: 1px solid black;
-  background-color: white;
+  color: ${({ selected }) => (selected ? "white" : "black")};
+  background-color: ${({ selected }) => (selected ? "black" : "white")};
 `;

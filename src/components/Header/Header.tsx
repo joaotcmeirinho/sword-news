@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   HeaderContainer,
   LogoContainer,
@@ -7,12 +8,28 @@ import {
 } from "./Header.styles";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleOnNavigate = (page: "account" | "bookmarks" | "homepage") => {
+    navigate(
+      page === "account"
+        ? "/my-account"
+        : page === "bookmarks"
+        ? "/bookmarks"
+        : "/"
+    );
+  };
+
   return (
     <HeaderContainer>
-      <LogoContainer>Sword Logo</LogoContainer>
+      <LogoContainer onClick={() => handleOnNavigate("homepage")}>
+        Sword Logo
+      </LogoContainer>
       <MenuContainer>
         <MenuSection>My Bookmarks</MenuSection>
-        <MenuSection>My Account</MenuSection>
+        <MenuSection onClick={() => handleOnNavigate("account")}>
+          My Account
+        </MenuSection>
       </MenuContainer>
     </HeaderContainer>
   );

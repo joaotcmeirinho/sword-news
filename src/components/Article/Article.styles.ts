@@ -13,6 +13,8 @@ export const ArticleInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  height: 100%;
+  justify-content: space-between;
 `;
 export const ArticleImageContainer = styled.div`
   width: 50%;

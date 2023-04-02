@@ -16,6 +16,7 @@ export const LogoContainer = styled.div`
   color: white;
   padding: 8px 16px;
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 export const MenuContainer = styled.div`
@@ -24,4 +25,6 @@ export const MenuContainer = styled.div`
   gap: 40px;
 `;
 
-export const MenuSection = styled.p``;
+export const MenuSection = styled.p`
+  cursor: pointer;
+`;
