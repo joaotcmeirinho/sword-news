@@ -6,18 +6,6 @@ export const articleCategories: string[] = [
   "Engineering",
 ];
 
-export const highlightedArticle: ArticleModel = {
-  id: "1",
-  title: "Showcase your thought provoking topics and ideas",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  image:
-    "https://media.istockphoto.com/id/1315904960/photo/taking-notes-on-a-ring-binded-notepad-inf.jpg?b=1&s=170667a&w=0&k=20&c=hhPKAbbFiLYgiuqJbv5Pjj3RJBdUTKnzmgYDGFJ5Q4o=",
-  category: "Marketing",
-  content: "",
-  isDraft: false,
-};
-
 export const articlesData: ArticleModel[] = [
   {
     id: "1",
@@ -29,6 +17,8 @@ export const articlesData: ArticleModel[] = [
     category: "Design",
     content: "",
     isDraft: false,
+    authorId: "SGZ0o6SAS7SGUjiMJhFvxaRdYhB2",
+    isHighlighted: true,
   },
   {
     id: "2",
@@ -39,6 +29,8 @@ export const articlesData: ArticleModel[] = [
     category: "Engineering",
     content: "",
     isDraft: false,
+    authorId: "SGZ0o6SAS7SGUjiMJhFvxaRdYhB2",
+    isHighlighted: false,
   },
   {
     id: "3",
@@ -50,6 +42,8 @@ export const articlesData: ArticleModel[] = [
     category: "Design",
     content: "",
     isDraft: false,
+    authorId: "SGZ0o6SAS7SGUjiMJhFvxaRdYhB2",
+    isHighlighted: false,
   },
   {
     id: "4",
@@ -61,6 +55,8 @@ export const articlesData: ArticleModel[] = [
     category: "Engineering",
     content: "",
     isDraft: false,
+    authorId: "SGZ0o6SAS7SGUjiMJhFvxaRdYhB2",
+    isHighlighted: false,
   },
   {
     id: "5",
@@ -72,6 +68,8 @@ export const articlesData: ArticleModel[] = [
     category: "Engineering",
     content: "",
     isDraft: false,
+    authorId: "SGZ0o6SAS7SGUjiMJhFvxaRdYhB2",
+    isHighlighted: false,
   },
   {
     id: "6",
@@ -83,6 +81,8 @@ export const articlesData: ArticleModel[] = [
     category: "Engineering",
     content: "",
     isDraft: false,
+    authorId: "SGZ0o6SAS7SGUjiMJhFvxaRdYhB2",
+    isHighlighted: false,
   },
   {
     id: "7",
@@ -94,6 +94,8 @@ export const articlesData: ArticleModel[] = [
     category: "Engineering",
     content: "",
     isDraft: false,
+    authorId: "SGZ0o6SAS7SGUjiMJhFvxaRdYhB2",
+    isHighlighted: false,
   },
   {
     id: "8",
@@ -105,6 +107,8 @@ export const articlesData: ArticleModel[] = [
     category: "Marketing",
     content: "",
     isDraft: false,
+    authorId: "SGZ0o6SAS7SGUjiMJhFvxaRdYhB2",
+    isHighlighted: false,
   },
   {
     id: "9",
@@ -116,5 +120,7 @@ export const articlesData: ArticleModel[] = [
     category: "Design",
     content: "",
     isDraft: false,
+    authorId: "SGZ0o6SAS7SGUjiMJhFvxaRdYhB2",
+    isHighlighted: false,
   },
 ];

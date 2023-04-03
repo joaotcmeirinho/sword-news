@@ -11,6 +11,7 @@ import { useAuth } from "../services";
 
 interface UserModel {
   email: string;
+  userId: string;
   role: "admin" | "user";
 }
 
@@ -40,6 +41,7 @@ const SessionProvider = ({ children }: PropsWithChildren) => {
           const userData = {
             role: role,
             email: currentUser.email!,
+            userId: currentUser.uid,
           };
           setUser(userData);
         });
@@ -49,8 +51,6 @@ const SessionProvider = ({ children }: PropsWithChildren) => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log(user);
 
   return (
     <SessionContext.Provider value={{ user, setUser }}>

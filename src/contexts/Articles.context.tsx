@@ -12,7 +12,6 @@ import { articlesData } from "../data";
 interface ArticlesContextModel {
   articles: ArticleModel[];
   setArticles: React.Dispatch<React.SetStateAction<ArticleModel[]>>;
-  articlesLoaded: ArticleModel[];
   loadQuantity: number;
   setLoadQuantity: React.Dispatch<React.SetStateAction<number>>;
 }
@@ -56,16 +55,11 @@ const ArticlesProvider = ({ children }: PropsWithChildren) => {
     }
   }, [articles, filter]);
 
-  const articlesLoaded = !!filter
-    ? filteredArticles?.slice(0, loadQuantity)
-    : articles.slice(0, loadQuantity);
-
   return (
     <ArticlesContext.Provider
       value={{
         articles: !!filter ? filteredArticles : articles,
         setArticles,
-        articlesLoaded,
         loadQuantity,
         setLoadQuantity,
       }}

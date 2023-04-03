@@ -4,9 +4,15 @@ interface InputSelectProps {
   label: string;
   items: string[];
   onChangeHandler: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  value: string;
 }
 
-const InputSelect = ({ label, items, onChangeHandler }: InputSelectProps) => {
+const InputSelect = ({
+  label,
+  items,
+  onChangeHandler,
+  value,
+}: InputSelectProps) => {
   return (
     <div
       style={{
@@ -19,7 +25,7 @@ const InputSelect = ({ label, items, onChangeHandler }: InputSelectProps) => {
       <select onChange={onChangeHandler}>
         <option></option>
         {items.map((item, index) => (
-          <option key={index} value={item}>
+          <option selected={value === item || false} key={index} value={item}>
             {item}
           </option>
         ))}

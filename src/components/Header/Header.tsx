@@ -37,7 +37,11 @@ const Header = () => {
         Sword Logo
       </LogoContainer>
       <MenuContainer>
-        {user && <MenuSection>My Bookmarks</MenuSection>}{" "}
+        {user && (
+          <MenuSection onClick={() => handleOnNavigate("bookmarks")}>
+            My Bookmarks
+          </MenuSection>
+        )}{" "}
         <MenuSection
           onClick={user ? () => handleOnNavigate("account") : toggleModal}
         >

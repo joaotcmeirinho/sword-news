@@ -4,12 +4,12 @@ import {
   Categories,
   HighlightedArticle,
 } from "../../components";
-import { useArticles } from "../../contexts";
-import { articleCategories, highlightedArticle } from "../../data";
+import { useArticles, useSession } from "../../contexts";
+import { articleCategories } from "../../data";
 
 const Homepage = () => {
-  const { loadQuantity, setLoadQuantity, articlesLoaded, articles } =
-    useArticles();
+  const { loadQuantity, setLoadQuantity, articles } = useArticles();
+  const { user } = useSession();
 
   const hasNextItems = loadQuantity < articles.length;
 
@@ -17,9 +17,24 @@ const Homepage = () => {
     setLoadQuantity((prevQuantity) => prevQuantity + 8);
   };
 
+  const highlightedArticle = articles.find((article) => article.isHighlighted);
+
+  const isAdmin = !!user && user.role === "admin";
+
+  const userArticles = articles.filter((article) => {
+    const isAuthor = user?.userId === article.authorId;
+    return (isAuthor && article.isDraft) || !article.isDraft;
+  });
+
+  const articlesList = isAdmin ? articles : userArticles;
+
+  const articlesLoaded = articlesList.slice(0, loadQuantity);
+
   return (
     <>
-      <HighlightedArticle article={highlightedArticle} />
+      {highlightedArticle && (
+        <HighlightedArticle article={highlightedArticle} />
+      )}
       <Categories categories={articleCategories} />
       <ArticlesList articlesData={articlesLoaded} />
       {hasNextItems && (

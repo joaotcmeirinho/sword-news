@@ -3,6 +3,7 @@ import {
   CategoriesProvider,
   ArticlesProvider,
   SessionProvider,
+  BookmarksProvider,
 } from "./contexts";
 import Layout from "./layouts/Layout/Layout";
 
@@ -11,7 +12,9 @@ function App() {
     <SessionProvider>
       <CategoriesProvider>
         <ArticlesProvider>
-          <Layout />
+          <BookmarksProvider>
+            <Layout />
+          </BookmarksProvider>
         </ArticlesProvider>
       </CategoriesProvider>
     </SessionProvider>

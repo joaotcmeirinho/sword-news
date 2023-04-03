@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import uuid from "react-uuid";
 import { Button, InputSelect, InputText } from "../../components";
-import { useArticles, useCategories } from "../../contexts";
+import { useArticles, useCategories, useSession } from "../../contexts";
 import { ArticleModel } from "../../models";
 import { BtnContainer, FormContainer } from "./NewArticle.styles";
 
@@ -10,14 +10,25 @@ const NewArticleForm = () => {
   const navigate = useNavigate();
   const newArticleId = uuid();
 
+  const { state } = useLocation();
+
+  const { id, title, description, image, category, content, isDraft } =
+    state || {};
+
+  const isEditingArticle = !!state;
+
+  const { user } = useSession();
+
   const [newArticle, setNewArticle] = useState<ArticleModel>({
     id: newArticleId,
-    title: "",
-    description: "",
-    image: "",
-    category: "",
-    content: "",
-    isDraft: false,
+    title: title || "",
+    description: description || "",
+    image: image || "",
+    category: category || "",
+    content: content || "",
+    isDraft: isDraft || false,
+    authorId: user?.userId!,
+    isHighlighted: false,
   });
 
   const { articleCategories } = useCategories();
@@ -42,7 +53,19 @@ const NewArticleForm = () => {
     setNewArticle({ ...newArticle, isDraft: e.target.checked });
 
   const handleOnSubmit = () => {
-    setArticles([newArticle, ...articles]);
+    if (isEditingArticle) {
+      const articleIndex = articles.findIndex((article) => article.id === id);
+      const articlesCopy = articles.map((article) =>
+        Object.assign({}, article)
+      );
+      articlesCopy[articleIndex] = newArticle;
+      setArticles(articlesCopy);
+    } else {
+      setArticles([
+        { ...newArticle, authorId: user?.userId || "" },
+        ...articles,
+      ]);
+    }
     navigate("/");
   };
 
@@ -67,6 +90,7 @@ const NewArticleForm = () => {
         styles={{ width: "300px", height: "25px" }}
       />
       <InputSelect
+        value={newArticle.category}
         onChangeHandler={handleOnChangeCategory}
         items={articleCategories}
         label={"Categoria"}
@@ -79,12 +103,16 @@ const NewArticleForm = () => {
       />
       <BtnContainer>
         <Button
-          label="Publish"
+          label={isEditingArticle ? "Edit" : "Publish"}
           onClickHandler={handleOnSubmit}
           width={"200px"}
         />
         <label>Draft</label>
-        <input onChange={handleOnChangeDraft} type="checkbox" />
+        <input
+          checked={newArticle.isDraft || false}
+          onChange={handleOnChangeDraft}
+          type="checkbox"
+        />
       </BtnContainer>
     </FormContainer>
   );
