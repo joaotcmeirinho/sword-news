@@ -8,13 +8,18 @@ import {
   Title,
 } from "./Article.styles";
 import { Button } from "../../components";
+import { useNavigate } from "react-router-dom";
 
 interface ArticleProps {
   article: ArticleModel;
 }
 
 const Article = ({ article }: ArticleProps) => {
-  const { title, description, image } = article;
+  const { id, title, description, image } = article;
+
+  const navigate = useNavigate();
+
+  const handleOnPress = () => navigate(`/article/${id}`);
 
   return (
     <Container>
@@ -24,7 +29,11 @@ const Article = ({ article }: ArticleProps) => {
       <ArticleInfoContainer>
         <Title>{title}</Title>
         <Description>{description}</Description>
-        <Button width={"100px"} onClickHandler={() => {}} label={"Read more"} />
+        <Button
+          width={"100px"}
+          onClickHandler={handleOnPress}
+          label={"Read more"}
+        />
       </ArticleInfoContainer>
     </Container>
   );

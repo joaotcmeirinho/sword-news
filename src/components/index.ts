@@ -8,6 +8,7 @@ import Article from "./HighlightedArticle/HighlightedArticle";
 import Button from "./Button/Button";
 import InputText from "./InputText/InputText";
 import InputSelect from "./InputSelect/InputSelect";
+import LoginModal from "./LoginModal/LoginModal";
 
 export {
   Header,
@@ -20,4 +21,5 @@ export {
   Button,
   InputText,
   InputSelect,
+  LoginModal,
 };

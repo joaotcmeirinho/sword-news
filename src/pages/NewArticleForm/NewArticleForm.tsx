@@ -49,16 +49,19 @@ const NewArticleForm = () => {
   return (
     <FormContainer>
       <InputText
+        value={newArticle.title}
         onChangeHandler={handleOnChangeTitle}
         label="Title"
         styles={{ width: "300px", height: "25px" }}
       />
       <InputText
+        value={newArticle.description}
         onChangeHandler={handleOnChangeDescription}
         label="Small description"
         styles={{ width: "300px", height: "150px" }}
       />
       <InputText
+        value={newArticle.image}
         onChangeHandler={handleOnChangeImageUrl}
         label="Image URL"
         styles={{ width: "300px", height: "25px" }}
@@ -69,6 +72,7 @@ const NewArticleForm = () => {
         label={"Categoria"}
       />
       <InputText
+        value={newArticle.content}
         onChangeHandler={handleOnChangeContent}
         label="Content"
         styles={{ width: "300px", height: "300px" }}

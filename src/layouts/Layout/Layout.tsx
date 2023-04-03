@@ -1,9 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Header, Footer, Body } from "../../components";
 
-import { Homepage } from "../../pages";
-import MyAccount from "../../pages/MyAccount/MyAccount";
-import NewArticleForm from "../../pages/NewArticleForm/NewArticleForm";
+import { Article, Homepage, MyAccount, NewArticleForm } from "../../pages";
 import { LayoutContainer } from "./Layout.styles";
 
 const Layout = () => {
@@ -15,6 +13,7 @@ const Layout = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/my-account" element={<MyAccount />} />
           <Route path="/new-article" element={<NewArticleForm />} />
+          <Route path="/article/:id" element={<Article />} />
         </Routes>
       </Body>
       <Footer />

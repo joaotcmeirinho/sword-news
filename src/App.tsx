@@ -1,15 +1,20 @@
 import "./App.css";
-import { CategoriesProvider } from "./contexts";
-import ArticlesProvider from "./contexts/Articles.context";
+import {
+  CategoriesProvider,
+  ArticlesProvider,
+  SessionProvider,
+} from "./contexts";
 import Layout from "./layouts/Layout/Layout";
 
 function App() {
   return (
-    <CategoriesProvider>
-      <ArticlesProvider>
-        <Layout />
-      </ArticlesProvider>
-    </CategoriesProvider>
+    <SessionProvider>
+      <CategoriesProvider>
+        <ArticlesProvider>
+          <Layout />
+        </ArticlesProvider>
+      </CategoriesProvider>
+    </SessionProvider>
   );
 }
 
