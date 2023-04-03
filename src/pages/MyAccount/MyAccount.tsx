@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components";
 import { useSession } from "../../contexts";
@@ -26,7 +25,7 @@ const MyAccount = () => {
         alignItems: "center",
       }}
     >
-      {!!user && `Logged user: ${user?.email}`}{" "}
+      {!!user && `Logged user: ${user?.email}`}
       <Button
         label={"New Article"}
         width={"150px"}

@@ -41,7 +41,7 @@ const Header = () => {
           <MenuSection onClick={() => handleOnNavigate("bookmarks")}>
             My Bookmarks
           </MenuSection>
-        )}{" "}
+        )}
         <MenuSection
           onClick={user ? () => handleOnNavigate("account") : toggleModal}
         >
